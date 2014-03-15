@@ -11,7 +11,7 @@ require! {
 file = argv.file or throw 'input file required'
 
 hamming-distance = (s, t) ->
-  chars s |> zip-with (!==), _, chars t |> sum
+  chars s |> zip-with (!=), _, chars t |> sum
 
 err, data <- fs.read-file file, \utf-8
 console.log apply hamming-distance, lines data
